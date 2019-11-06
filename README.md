@@ -1,4 +1,4 @@
-# Assignment 4: Processing Big Graphs #
+# Assignment 4: Big Graph Processing in OpenMP #
 
 **Due: Tuesday Nov 19th, 11:59PM PST**
 
