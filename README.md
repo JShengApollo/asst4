@@ -21,9 +21,7 @@ Download the Assignment 4 starter code from the course Github page using:
 
 #### Background: Learning OpenMP ####
 
-In this assignment we'd like you to use [OpenMP](http://openmp.org/wp/) for multi-core parallelization. OpenMP is an API and set of C-language extensions that provides compiler support for parallelism.  It is well documented online, but here is a brief example of parallelizing a `for` loop, with mutual exclusion 
-    
-You can also use OpenMP to tell the compiler to parallelize iterations of `for` loops, and to manage mutual exclusion.
+In this assignment we'd like you to use [OpenMP](http://openmp.org/wp/) for multi-core parallelization. OpenMP is an API and set of C-language extensions that provides compiler support for parallelism. You can also use OpenMP to tell the compiler to parallelize iterations of `for` loops, and to manage mutual exclusion. It is well documented online, but here is a brief example of parallelizing a `for` loop, with mutual exclusion.
 
     /* The iterations this for loop may be parallelized */      
     #pragma omp parallel for                                                      
