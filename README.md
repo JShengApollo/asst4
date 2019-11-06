@@ -14,9 +14,9 @@ Early starters of this assignment should get started by running on the 4-core (8
 
 To get started on myth machines:
 
-Download the Assignment 3 starter code from the course Github page using:
+Download the Assignment 4 starter code from the course Github page using:
 
-    git clone https://github.com/stanford-cs149/asst3
+    git clone https://github.com/stanford-cs149/asst4
 
 
 #### Background: Learning OpenMP ####
