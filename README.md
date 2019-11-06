@@ -1,4 +1,4 @@
-# Assignment 3: Processing Big Graphs #
+# Assignment 4: Processing Big Graphs #
 
 **Due: Tuesday Nov 19th, 11:59PM PST**
 
