@@ -58,8 +58,8 @@ double run_on_graph(graph* g, int num_threads, int num_runs, std::string graph_n
     double stu_time = std::numeric_limits<int>::max();
     for (int r = 0; r < num_runs; r++) {
         start = CycleTimer::currentSeconds();
-        //pageRank(g, sol_stu, PageRankDampening, PageRankConvergence);
-        reference_pageRank(g, sol_stu, PageRankDampening, PageRankConvergence);
+        pageRank(g, sol_stu, PageRankDampening, PageRankConvergence);
+        //reference_pageRank(g, sol_stu, PageRankDampening, PageRankConvergence);
         time = CycleTimer::currentSeconds() - start;
         stu_time = std::min(stu_time, time);
     }
