@@ -48,9 +48,8 @@ graph* load_graph(std::string graph_filename) {
 }
 
 double compute_score(std::string graph_name, bool correct, double ref_time, double stu_time) {
-
-  bool small = false;
-    if ((graph_name == "grid1000x1000.graph") || (graph_name == "soc-livejournal1_68m.graph"))
+    bool small = false;
+    if ((graph_name == "grid1000x1000.graph") || (graph_name == "soc-livejournal1_68m.graph") || (graph_name == "com-orkut_117m.graph"))
       small = true;
 
     double max_score = (small) ? 3 : 8;
