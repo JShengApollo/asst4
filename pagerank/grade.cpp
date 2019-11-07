@@ -189,8 +189,8 @@ int main(int argc, char** argv) {
 
     std::vector<std::string> grade_graphs = { "soc-livejournal1_68m.graph",
                                               "com-orkut_117m.graph",
-                                              "rmat_200m.graph"
-					      "random_500m.graph"};
+                                              "rmat_200m.graph",
+                                              "random_500m.graph"};
 
     std::vector<double> scores(grade_graphs.size());
 
