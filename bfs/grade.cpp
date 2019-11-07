@@ -48,11 +48,7 @@ graph* load_graph(std::string graph_filename) {
 }
 
 double compute_score(std::string graph_name, bool correct, double ref_time, double stu_time) {
-    bool small = false;
-    if ((graph_name == "grid1000x1000.graph") || (graph_name == "soc-livejournal1_68m.graph") || (graph_name == "com-orkut_117m.graph"))
-      small = true;
-
-    double max_score = (small) ? 3 : 8;
+    double max_score = 1.0;
     double max_perf_score = 0.8 * max_score; 
     double correctness_score = 0.2 * max_score;
     correctness_score = (correct) ? correctness_score : 0;
@@ -197,7 +193,7 @@ void print_separator_line() {
 
 void print_scores(std::vector<std::string> grade_graphs, std::vector<std::vector<double>> scores) {
     
-    std::cout.precision(5);
+    std::cout.precision(2);
     std::cout.setf(std::ios::fixed, std:: ios::floatfield);
     std::cout<<std::endl<<std::endl;
 
@@ -214,16 +210,20 @@ void print_scores(std::vector<std::string> grade_graphs, std::vector<std::vector
 
     double total_score = 0.0;
 
+    int max_scores_small[] = {2,3,3};
+    int max_scores_large[] = {7,8,8};
     for (int g = 0; g < grade_graphs.size(); g++) {
         auto& graph_name = grade_graphs[g];
-
-        total_score += (scores[g][top_down] + scores[g][bott_up] + scores[g][hybrid]);
 
         bool small = false;
         if ((graph_name == "grid1000x1000.graph") || (graph_name == "soc-livejournal1_68m.graph") ||
                 (graph_name == "com-orkut_117m.graph")) small = true;
 
-        std::string max_score = (small) ? "3" : "8";
+        int *max_scores = small ? max_scores_small : max_scores_large;
+
+        total_score +=  scores[g][top_down] * max_scores[top_down] 
+                      + scores[g][bott_up] * max_scores[bott_up]
+                      + scores[g][hybrid] * max_scores[hybrid];
 
         std::cout<<graph_name;
         for (int i = 0; i < (28 - graph_name.length()); i++) {
@@ -231,9 +231,9 @@ void print_scores(std::vector<std::string> grade_graphs, std::vector<std::vector
         }
 
         std::cout<<"| ";
-        std::cout<<"  "<<scores[g][top_down]<<" / "<<max_score<<" |"; 
-        std::cout<<"  "<<scores[g][bott_up]<<" / "<<max_score<<" |";
-        std::cout<<"  "<<scores[g][hybrid]<<" / "<<max_score<<" |"<<std::endl;;
+        std::cout<<"     "<<scores[g][top_down] * max_scores[top_down]<<" / "<<max_scores[top_down]<<" |"; 
+        std::cout<<"     "<<scores[g][bott_up] * max_scores[bott_up]<<" / "<<max_scores[bott_up]<<" |";
+        std::cout<<"     "<<scores[g][hybrid] * max_scores[hybrid]<<" / "<<max_scores[hybrid]<<" |"<<std::endl;;
 
         print_separator_line();
     }
@@ -242,15 +242,14 @@ void print_scores(std::vector<std::string> grade_graphs, std::vector<std::vector
     for (int i = 0; i < (59 - 5); i++) {
             std::cout<<" ";
     }
-    std::cout<<"| ";
-    std::cout<<total_score<<" / "<<"75"<<" |"<<std::endl;
+    std::cout<<"|  ";
+    std::cout<<total_score<<" / "<<"70"<<" |"<<std::endl;
 
     print_separator_line();
 
 }
 
 int main(int argc, char** argv) {
-
     int num_threads = omp_get_max_threads();
     int num_runs = 1;
     std::string graph_name, graph_dir;
