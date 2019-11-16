@@ -156,15 +156,15 @@ Along with your code, we would like you to hand in a clear, high-level descripti
 Aspects of your work that you should mention in the write-up include:
 
 1. Include both partners' names at the top of your write-up.
-2. Replicate the part 1 BFS/pagerank, and part 2 pagerank score table generated for your solution.
-3. For part 1-bfs, describe the process of optimizing your code:
- * Where is the synchronization in each your solutions? Do you do anything to limit the overhead of synchronization?
- * Did you decide to dynamically switch between the top-down and bottom-up BFS implementations? How did you decide which implementation to use?
- * Why do you think your code (and the staff reference) is unable to achieve perfect speedup? (Is it workload imabalance? communication/synchronization? data movement?)
+2. Run bfs_grader and pr_grader on GCP and insert a copy of the score table in your solutions.
+3. For bfs, describe the process of optimizing your code:
+ * In Part 2 (Top Down) and 3 (Bottom Up), where is the synchronization in each of your solutions? Do you do anything to limit the overhead of synchronization?
+ * In Part 4 (Hybrid), did you decide to switch between the top-down and bottom-up BFS implementations dynamically? How did you decide which implementation to use?
+ * Why do you think your code (and the staff reference) is unable to achieve perfect speedup? (Is it workload imbalance? communication/synchronization? data movement?)
 
 ## Points Distribution ##
 
-The 100 points on this assignment are alloted as follows:
+The 100 points on this assignment are allotted as follows:
 
 * 16 points:  pagerank performance
 * 70 points:  BFS performance
